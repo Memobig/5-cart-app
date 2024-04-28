@@ -12,6 +12,10 @@ const initialCartItems = [
 
 export const CartApp = () => {
 
+    const handlerAddProductCart = (product)=>{
+
+    }
+
     const [cartItems, setCartItems] = useState(initialCartItems);
 
 
