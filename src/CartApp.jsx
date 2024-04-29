@@ -12,10 +12,10 @@ const initialCartItems = [
 
 export const CartApp = () => {
 
-    
+
     const [cartItems, setCartItems] = useState(initialCartItems);
-    
-    const handlerAddProductCart = (product)=>{
+
+    const handlerAddProductCart = (product) => {
 
         const hasItem = cartItems.find((i) => i.product.id === product.id);
         if (hasItem) {
@@ -27,7 +27,7 @@ export const CartApp = () => {
             //     }
             // ])
             setCartItems(
-                cartItems.map((i)=> {
+                cartItems.map((i) => {
                     if (i.product.id === product.id) {
                         i.quantity = i.quantity + 1;
                     }
@@ -37,10 +37,10 @@ export const CartApp = () => {
         } else {
 
             setCartItems([...cartItems,
-                 {
-                    product,
-                    quantity: 1,
-                 }]);
+            {
+                product,
+                quantity: 1,
+            }]);
         }
 
     }
@@ -56,10 +56,13 @@ export const CartApp = () => {
         <>
             <div className="container">
                 <h3>CartApp</h3>
-                <CatalogView handler = {handlerAddProductCart}/>
-                <div className="my-4 w-50">
-                    <CartView handlerDelete = { handlerDeleteProductCart } items = { cartItems }/>
-                </div>
+                <CatalogView handler={handlerAddProductCart} />
+                {cartItems?.length <= 0 || (
+
+                    <div className="my-4 w-50">
+                        <CartView handlerDelete={handlerDeleteProductCart} items={cartItems} />
+                    </div>
+                )}
             </div>
         </>
     )
