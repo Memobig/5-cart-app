@@ -45,6 +45,12 @@ export const CartApp = () => {
 
     }
 
+    const handlerDeleteProductCart = (id) => {
+        setCartItems([
+            ...cartItems.filter((i) => i.product.id !== id)
+        ]);
+    }
+
 
     return (
         <>
@@ -52,7 +58,7 @@ export const CartApp = () => {
                 <h3>CartApp</h3>
                 <CatalogView handler = {handlerAddProductCart}/>
                 <div className="my-4 w-50">
-                    <CartView items = { cartItems }/>
+                    <CartView handlerDelete = { handlerDeleteProductCart } items = { cartItems }/>
                 </div>
             </div>
         </>
