@@ -16,7 +16,6 @@ export const CartRoutes = ({ cartItems, handlerAddProductCart, handlerDeleteProd
                         <div className="alert alert-warning">No hay productos en el carrito de compras!</div>
                         :
                         (
-
                             <div className="my-4 w-50">
                                 <CartView handlerDelete={handlerDeleteProductCart} items={cartItems} />
                             </div>
